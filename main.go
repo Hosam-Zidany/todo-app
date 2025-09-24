@@ -21,5 +21,7 @@ func main() {
 	r.POST("/todos", controllers.CreateTodo)
 	r.GET("/todos", controllers.GetTodos)
 	r.GET("/todo/:id", controllers.GetTodoById)
+	r.PUT("/todo/:id", controllers.UpdateTodo)
+	r.DELETE("todo/:id", controllers.DeleteTodo)
 	r.Run(":8080")
 }
