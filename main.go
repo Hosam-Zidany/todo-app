@@ -18,7 +18,8 @@ func main() {
 		c.JSON(200, gin.H{"message": "pong"})
 	})
 
-	r.POST("/todos",controllers.CreateTodo)
-	r.GET("/todos",controllers.GetTodos)
+	r.POST("/todos", controllers.CreateTodo)
+	r.GET("/todos", controllers.GetTodos)
+	r.GET("/todo/:id", controllers.GetTodoById)
 	r.Run(":8080")
 }

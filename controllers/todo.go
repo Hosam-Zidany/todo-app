@@ -32,3 +32,14 @@ func GetTodos(c *gin.Context) {
 	c.JSON(http.StatusOK, todos)
 }
 
+func GetTodoById(c *gin.Context) {
+
+	var todo models.Todo
+	id := c.Param("id")
+
+	result := config.DB.First(&todo, id)
+	if result.Error != nil {
+		c.JSON(http.StatusNotFound, gin.H{"error": "ToDo not found"})
+	}
+	c.JSON(http.StatusOK, todo)
+}
